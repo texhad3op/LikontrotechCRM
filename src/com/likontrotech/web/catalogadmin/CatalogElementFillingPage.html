@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>TreePage</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style>
+table.wicket-tree-content {
+	width: 100%;
+}
+
+</style>
+</head>
+<body>
+<wicket:extend>
+	<table width="100%">
+	<tr>
+	<td>
+		<div class="ColumnTop">Katalogas</div> 
+		<div class="Column">
+			<div wicket:id="tree" class="my-tree"></div>
+		</div>
+	</td>
+	<td valign="top">
+		<div class="ColumnTop">Elementas: <span wicket:id="selectedElement"></span></div> 
+		<div class="Column">
+		<div class="aPanelTop">Veiksmai</div>
+		<div class="aPanelBtm">
+			<a href="#" wicket:id="copyLink">copy mode</a>
+			<span wicket:id="selectLabel"></span> 
+			<span wicket:id="otherSelectedElement"></span> 
+			<a href="#" wicket:id="delete">delete</a>
+		</div>
+		<div class="aPanelTop">Keisti elementą</div>
+		<div class="aPanelBtm">
+		<form wicket:id="form" name="editForm">
+		<table>
+			<tr>
+				<td>Kaina</td>
+				<td><input type="text" wicket:id="price" /></td>
+			</tr>
+			<tr>
+				<td>Kiekis sandelyje</td>
+				<td><input type="text" wicket:id="quantityOnWarehouse" /></td>
+			</tr>			
+				<wicket:container wicket:id="components">
+					<wicket:container wicket:id="component" />
+				</wicket:container>
+			<tr>
+				<td colspan="2">
+					<fieldset><legend>Pakrovimo forma</legend>
+					<p><label for="upload">Byla</label> 
+					<input wicket:id="fileInput" id="upload" type="file" /></p>
+					<span wicket:id="hasPicture">fffff</span>
+					<a href="#" wicket:id="deletePicture">deletePicture</a>
+					<img wicket:id="picture" />
+					</fieldset>
+				</td>
+			</tr>
+			<tr>
+				<td>&nbsp;</td>
+				<td><input type="submit" value="Išsaugoti" /></td>
+			</tr>
+		</table>
+		</form>
+		</div>
+		<div class="aPanel">
+			<table class="TableBorder">
+				<tr>
+					<td class="TableTop">Reikšmės</td>
+				</tr>
+				<tr wicket:id="attributeValuesList">
+					<td><span wicket:id="attributeValue">uu</span></td>
+				</tr>
+			</table>
+		</div>	
+		</div>
+	</td>
+	</tr>
+</table>
+</wicket:extend>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<project name="LikontrotechCRM" default="all-develop" basedir=".">
+	<echo>${user.name}</echo>
+	<property name="user.properties" value="${user.name}.properties" />
+	<property file="${user.properties}" />
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="build.dir" value="${basedir}/bin" />
+	<property name="lib.dir" value="${basedir}" />
+
+
+	<!-- ************************* -->
+	<target name="clean">
+		<delete>
+			<fileset dir="${basedir}/jar/" includes="**/*.*" />
+		</delete>
+	</target>
+
+	<target name="build">
+		<antcall target="clean" />
+		<antcall target="package-entities" />
+	</target>
+
+	<target name="all-develop" depends="build">
+		<antcall target="package-entities" />
+		<antcall target="package-web-develop" />
+		<antcall target="assemble-app-develop" />
+		<antcall target="copyTojboss" />
+	</target>
+
+	<target name="all-prod" depends="build">
+		<antcall target="package-entities" />
+		<antcall target="package-web-prod" />
+		<antcall target="assemble-app-prod" />
+		<antcall target="copyTojboss" />
+	</target>
+
+
+	<!-- The build classpath -->
+	<path id="build.classpath">
+
+		<fileset dir="${basedir}/lib">
+			<include name="*.jar" />
+		</fileset>
+
+
+
+	</path>
+
+
+
+	<target name="prepare">
+		<mkdir dir="${basedir}/jar" />
+	</target>
+
+	<!-- MUST use JDK 1.5 compiler -->
+	<target name="compile" depends="prepare">
+		<javac destdir="${basedir}/classes" classpathref="build.classpath" encoding="UTF-8" debug="on">
+			<src path="${src.dir}" />
+		</javac>
+
+	</target>
+
+	<!-- Package the persistence module -->
+	<target name="package-entities" depends="compile">
+		<filter filtersfile="${user.properties}" />
+
+		<copy file="persistence/persistence.xml" filtering="true" tofile="jar/persistence.xml" failonerror="false" preservelastmodified="true" overwrite="true">
+		</copy>
+
+		<jar jarfile="${basedir}/jar/LikontrotechCRMEJB.jar">
+			<fileset dir="${basedir}/classes">
+				<include name="com/likontrotech/ejb/**/*.class" />
+			</fileset>
+			<metainf dir="jar">
+				<include name="persistence.xml" />
+			</metainf>
+		</jar>
+	</target>
+
+
+	<!-- Package web -->
+	<target name="package-web-develop" depends="compile">
+		<war warfile="${basedir}/jar/LikontrotechCRM.war" webxml="configdevelop/web.xml">
+			<classes dir="${basedir}/classes">
+				<include name="com/likontrotech/web/**" />
+			</classes>
+			<lib dir="${basedir}/weblib">
+			</lib>
+		</war>
+	</target>
+
+	<target name="package-web-prod" depends="compile">
+		<war warfile="${basedir}/jar/LikontrotechCRM.war" webxml="configprod/web.xml">
+			<classes dir="${basedir}/classes">
+				<include name="com/likontrotech/web/**" />
+			</classes>
+			<lib dir="${basedir}/weblib">
+			</lib>
+		</war>
+	</target>
+
+
+	<target name="assemble-app-develop">
+		<filter filtersfile="${user.properties}" />
+		<copy file="configdevelop/application.xml" filtering="true" tofile="jar/application.xml" failonerror="false" preservelastmodified="true" overwrite="true">
+		</copy>
+		<jar jarfile="${basedir}/jar/LikontrotechCRM.ear">
+			<metainf dir="jar/">
+				<include name="application.xml" />
+			</metainf>
+			<fileset dir="${basedir}/jar" includes="*.ejb3,*.jar,*.war,*.par" />
+		</jar>
+	</target>
+
+	<target name="assemble-app-prod">
+		<filter filtersfile="${user.properties}" />
+		<copy file="configprod/application.xml" filtering="true" tofile="jar/application.xml" failonerror="false" preservelastmodified="true" overwrite="true">
+		</copy>
+		<jar jarfile="${basedir}/jar/LikontrotechCRM.ear">
+			<metainf dir="jar/">
+				<include name="application.xml" />
+			</metainf>
+			<fileset dir="${basedir}/jar" includes="*.ejb3,*.jar,*.war,*.par" />
+		</jar>
+	</target>
+
+	<target name="copyTojboss">
+		<echo>${jboss.deploy}</echo>
+		<copy todir="${jboss.deploy}" overwrite="true">
+			<fileset dir="${basedir}/jar">
+				<include name="*.ear" />
+			</fileset>
+		</copy>
+	</target>
+
+</project>

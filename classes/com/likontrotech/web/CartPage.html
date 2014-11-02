@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>Atrinkti punktai:</title>
+<style type="text/css">
+body {
+	font-family: verdana, sans-serif;
+	font-size: 82%;
+	background-color: white;
+}
+</style>
+</head>
+<body>
+<span wicket:id="notSelected"><br />
+</span>
+<form wicket:id="priceForm">
+<table border="0" width="100%">
+	<tr>
+		<td>
+		<table border="2" width="100%">
+			<tr>
+				<td>Prekė</td>
+				<td height="30 px">Katalogo kaina</td>
+				<td>Išskirtinė kaina</td>
+				<td>Kiekis</td>
+				<td>Nuotrauka</td>				
+			</tr>
+			<wicket:container wicket:id="components">
+				<tr>
+					<wicket:container wicket:id="component" />
+				</tr>
+			</wicket:container>
+		</table>
+		</td>
+		<td>
+		<table border="2" width="100%">
+			<tr>
+				<td height="30 px">&nbsp;</td>
+			</tr>
+			<tr wicket:id="selectedElementsList">
+				<td><a href="#" wicket:id="deletelink" onclick="return confirm('Are you sure?');">delete</a></td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+<table border="1" width="100%">
+	<tr>
+		<td>Nuolaida</td>
+		<td><input type="text" wicket:id="discount"> %</td>
+	</tr>
+	<tr>
+		<td>Rodyti tekstą</td>
+		<td><input type="checkbox" wicket:id="showText" /></td>
+	</tr>	
+	<tr>
+		<td>Pristatymas</td>
+		<td><select wicket:id="daysType"></select> d.</td>
+	</tr>
+	<tr>
+		<td>Dienų begyje po apmokėjimo sf</td>
+		<td><select wicket:id="paymentDaysType"></select></td>
+	</tr>
+	<tr>
+		<td>Mokėjimo tipas</td>
+		<td><select wicket:id="paymentType"></select></td>
+	</tr>
+	<tr>
+		<td>Pasiūlymas galioja</td>
+		<td><select wicket:id="suggestionValidDays"></select> d.</td>
+	</tr>
+	<tr>
+		<td>Kaina</td>
+		<td><span wicket:id="price">uu</span></td>
+	</tr>
+	<tr>
+		<td>Galutinė kaina</td>
+		<td><span wicket:id="finalPrice">uu</span></td>
+	</tr>
+	<tr>
+		<td>Rodyti nuotraukas</td>
+		<td><input type="checkbox" wicket:id="showPictures" /></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type="submit" /></td>
+	</tr>
+
+</table>
+</form>
+</body>
+</html>

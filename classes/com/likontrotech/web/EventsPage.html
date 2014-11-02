@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>CaliberTraffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link wicket:id='stylesheet' />
+	<link wicket:id='stylesheet2' media="screen" />
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<wicket:extend>
+
+
+
+	<div class="ColumnTop">Įmonė: <span wicket:id="firm">uu</span></div>
+
+
+
+
+
+<table>
+  <tr>
+	<td valign="top">
+
+
+
+
+
+
+<div class="btn-toolbar">
+    <button class="btn btn-primary" wicket:id="firms">Grižti prie įmonių sąrašo</button>
+    <button class="btn btn-primary" wicket:id="edit">Redaguoti</button>
+    <button class="btn btn-primary" wicket:id="delete" onclick="return confirm('Are you sure?');">Trinti</button>
+</div>		
+<div class="well">
+    <table class="table">
+      <tbody>
+		<tr>
+			<td>Tipas</td>
+			<td><span wicket:id="type"></span></td>
+		</tr> 
+		<tr>
+			<td>Aprašymas</td>
+			<td><span wicket:id="description"></span></td>
+		</tr> 			
+		<tr>
+			<td>Adresas</td>
+			<td><span wicket:id="address"></span></td>
+		</tr> 		
+		<tr>
+			<td>Vardas</td>
+			<td><span wicket:id="representativeName"></span></td>
+		</tr> 		
+		<tr>
+			<td>Pavardė</td>
+			<td><span wicket:id="representativeSurname"></span></td>
+		</tr> 		
+		<tr>
+			<td>Mob. tel. numeris</td>
+			<td><span wicket:id="cellular"></span></td>
+		</tr> 	
+		<tr>
+			<td>Telefono numeris1</td>
+			<td><span wicket:id="phone1"></span></td>
+		</tr> 	
+		<tr>
+			<td>Telefono numeris2</td>
+			<td><span wicket:id="phone2"></span></td>
+		</tr> 	
+		<tr>
+			<td>Telefono numeris3</td>
+			<td><span wicket:id="phone3"></span></td>
+		</tr> 	
+		<tr>
+			<td>Elektroninis paštas</td>
+			<td><span wicket:id="mail"></span></td>
+		</tr> 			
+		<tr>
+			<td>Įmonės/asmens kodas</td>
+			<td><span wicket:id="companyCode"></span></td>
+		</tr> 			
+		<tr>
+			<td>PVM mokėtojo kodas</td>
+			<td><span wicket:id="vatCode"></span></td>
+		</tr> 
+		<tr>
+			<td>Tinklapis</td>
+			<td><a href="#" target="_new" wicket:id="site"></a></td>
+		</tr> 		
+		<tr>
+			<td>Pašto indeksas</td>
+			<td><span wicket:id="postIndex"></span></td>
+		</tr> 		
+		<tr>
+			<td>Atstovai</td>
+			<td><a wicket:id="representativesLink" href="#">Atstovai</a></td>
+		</tr> 		
+      </tbody>
+    </table>
+</div>		
+	
+	
+	
+
+	</td>
+	<td valign="top">
+	
+	
+<div class="btn-toolbar">
+    <button class="btn btn-primary" wicket:id="newEvent">Sukurti naują įvykį</button>
+</div>		
+<div class="well">
+    <table class="table">
+      <thead>
+        <tr>
+			<th>Data</th>
+			<th>Aprašymas</th>
+			<th>Vardas</th>
+			<th>Pavardė</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+        </tr>
+      </thead>
+      <tbody>
+		<tr wicket:id="eventsList">
+			<td><span wicket:id="eventTime">uu</span></td>
+			<td><a wicket:id="edit" href="#"><span
+				wicket:id="description">uu</span></a></td>
+			<td><span wicket:id="rname">uu</span></td>
+			<td><span wicket:id="rsurname">uu</span></td>
+			<td>&nbsp;&nbsp;&nbsp;</td>
+
+			<td><a wicket:id="delete" href="#"
+				onclick="return confirm('Are you sure?');">ištrinti</a></td>
+		</tr>      
+      </tbody>
+    </table>
+</div>	
+
+	
+	
+	
+	
+	
+	</td>
+	</tr>
+	</table>
+</wicket:extend>
+</body>
+</html>

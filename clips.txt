@@ -1,0 +1,104 @@
+CREATE TABLE department (
+  id INT PRIMARY KEY,
+  parent_department INT REFERENCES department,
+  name TEXT,
+  lv int
+);
+
+INSERT INTO department VALUES (0, NULL, 'ROOT',1);
+INSERT INTO department VALUES (1, 0, 'A',2);
+INSERT INTO department VALUES (2, 1, 'B',3);
+INSERT INTO department VALUES (3, 2, 'C',4);
+INSERT INTO department VALUES (4, 2, 'D',4);
+INSERT INTO department VALUES (5, 0, 'E',2);
+INSERT INTO department VALUES (6, 4, 'F',5);
+INSERT INTO department VALUES (7, 4, 'G',5);
+
+
+
+
+WITH RECURSIVE subdepartment AS
+(
+  -- 
+  SELECT * FROM department WHERE name = 'ROOT'
+
+  UNION ALL
+
+  -- recursive term referring to "subdepartment"
+  SELECT d.* FROM department AS d, subdepartment AS sd
+    WHERE d.parent_department = sd.id
+)
+SELECT * FROM subdepartment;
+
+
+
+id name registered type par_id
+INSERT INTO catalog_elements VALUES (0, 'ROOT', NULL,0, NULL);
+INSERT INTO catalog_elements VALUES (1, 'Manometrai', NULL,0, 0);
+INSERT INTO catalog_elements VALUES (4, 'Aneroidai', NULL,0, 1);
+	INSERT INTO catalog_elements VALUES (6, 'Aneroidas1', NULL,1, 4);
+	INSERT INTO catalog_elements VALUES (7, 'Aneroidas2', NULL,1, 4);	
+	INSERT INTO catalog_elements VALUES (8, 'Aneroidas3', NULL,1, 4);		
+INSERT INTO catalog_elements VALUES (5, 'Seni', NULL,0, 1);
+	INSERT INTO catalog_elements VALUES (9, 'Senas1', NULL,1, 5);
+	INSERT INTO catalog_elements VALUES (10, 'Senas2', NULL,1, 5);
+	INSERT INTO catalog_elements VALUES (11, 'Senas3', NULL,1, 5);
+INSERT INTO catalog_elements VALUES (2, 'Indikatoriai', NULL,0, 0);
+	INSERT INTO catalog_elements VALUES (12, 'Indikatorius1', NULL,1, 2);
+	INSERT INTO catalog_elements VALUES (13, 'Indikatorius2', NULL,1, 2);	
+INSERT INTO catalog_elements VALUES (3, 'Sekundmaciai', NULL,0, 0);
+INSERT INTO catalog_elements VALUES (14, 'Tikslus', NULL,0, 3);
+	INSERT INTO catalog_elements VALUES (15, 'TikslusSek1', NULL,1, 14);	
+	INSERT INTO catalog_elements VALUES (16, 'TikslusSek2', NULL,1, 14);	
+	INSERT INTO catalog_elements VALUES (17, 'TikslusSek3', NULL,1, 14);	
+	
+	
+WITH RECURSIVE subcatalog_elements AS
+(
+  SELECT * FROM catalog_elements WHERE name = 'ROOT'
+  UNION ALL
+  SELECT el.* FROM catalog_elements AS el, subcatalog_elements AS sel
+    WHERE el.parent_id = sel.id
+)
+SELECT id,name,type,parent_id FROM subcatalog_elements where id != 0 order by parent_id nulls first;
+
+
+select c.id, c.name, 
+(select count(e.id) from events e where e.company_id = c.id and to_char(e.time, 'YYYY-MM') = '2010-09') as "2010-12"
+,(select count(e.id) from events e where e.company_id = c.id and to_char(e.time, 'YYYY-MM') = '2010-10') as "2010-12"
+,(select count(e.id) from events e where e.company_id = c.id and to_char(e.time, 'YYYY-MM') = '2010-11') as "2010-12"
+,(select count(e.id) from events e where e.company_id = c.id and to_char(e.time, 'YYYY-MM') = '2010-12') as "2010-12"
+, (select count(e.id) from events e where e.company_id = c.id and to_char(e.time, 'YYYY-MM') = '2011-01') as "2011-01"
+from companies c 
+where 1=1	
+
+
+
+select * from catalog_elements where UPPER(name) like '%manometrai%' and id != 0
+select * from catalog_elements where id = 0
+12,2,0
+
+
+WITH RECURSIVE subcatalog_elements AS
+(
+  SELECT * FROM catalog_elements WHERE id in (12,41)
+  UNION ALL
+  SELECT el.* FROM catalog_elements AS el, subcatalog_elements AS sel
+    WHERE el.id = sel.parent_id
+)
+SELECT distinct * FROM subcatalog_elements order by parent_id nulls first;
+
+
+select ce.*, av.* from attributes a 
+inner join attributes_values av on a.id = av.attribute_id
+inner join catalog_elements ce on av.catalog_element_id = ce.id
+where a.name ilike 'kaina%'
+and ce.isshown = true
+
+
+update catalog_elements ce1 set price = (select replace(av.value, ',', '.')::numeric from attributes a 
+inner join attributes_values av on a.id = av.attribute_id
+inner join catalog_elements ce on av.catalog_element_id = ce.id
+where a.name ilike 'kaina%'
+and ce.isshown = true and ce.id = ce1.id)
+where ce1.id = 77

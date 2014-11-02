@@ -1,0 +1,63 @@
+<html xmlns:wicket>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>LoginPage</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style>
+table.wicket-tree-content {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<wicket:extend>
+	<table width="100%">
+		<tr>
+		<td valign="top">
+		 	<div class="ColumnTop">Katalogas</div> 
+	 		<div class="Column">
+				<div wicket:id="tree" class="my-tree"></div>
+			</div>
+		</td>
+		<td valign="top">
+		<div class="ColumnTop">Elementas: <span iwicket:id="selectedElement"></span></div> 
+	 	<div class="Column">
+	 		<div class="aPanelTop">Keisti</div>
+			<div class="aPanelBtm">
+			<table>			
+				<form iwicket:id="form" name="editForm">
+				<tr>
+					<td>Pavadinimas</td>
+					<td><input type="text" iwicket:id="name" size="40" /></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="submit" value="save" /></td>
+				</tr>
+				</form>
+			</table>
+			</div>	
+			<h3>Operacijos</h3>		
+			<table class="TableBorder" width="100%">
+				<tr>
+					<td class="TableTop">Nr.</td>
+					<td class="TableTop">Data</td>
+					<td class="TableTop">&nbsp;</td>
+					<td class="TableTop">&nbsp;</td>
+					<td class="TableTop">&nbsp;</td>
+				</tr>
+				<tr wicket:id="warehouseOperationList">
+					<td class="TableRow"><span wicket:id="number">uu</span></td>
+					<td class="TableRow"><span wicket:id="data">uu</span></td>
+					<td class="TableRow"><span wicket:id="quantity">uu</span></td>
+					<td class="TableRow"><span wicket:id="catalogElement">uu</span></td>
+					<td class="TableRow"><span wicket:id="operation">uu</span></td>
+				</tr>
+			</table>
+		</div>
+		</td>
+	</tr>
+</table>
+</wicket:extend>
+</body>
+</html>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>CaliberTraffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link wicket:id='stylesheet' />
+	<link wicket:id='stylesheet2' media="screen" />
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<wicket:extend>
+<div class="btn-toolbar">
+    <button class="btn btn-primary" wicket:id="firm">Grižti prie įmonės</button>
+</div>		
+
+	
+	<!-- forma start -->	
+<form class="form-horizontal" wicket:id="form" method="POST">
+  <fieldset>
+  
+  
+  
+    <div class="control-group">
+      <label class="control-label"  for="username">Pavadinimas</label>
+      <div class="controls">
+        <input type="text" wicket:id="name" class="input-xlarge"/>
+      </div>
+    </div>  
+    <div class="control-group">
+      <label class="control-label"  for="username">Tipas</label>
+      <div class="controls">
+        <select wicket:id="type" placeholder="" class="input-xlarge"></select>
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="email">Atstovas</label>
+      <div class="controls">
+        <select wicket:id="representative" class="input-xlarge"></select>
+      </div>
+    </div>     
+    <div class="control-group">
+      <label class="control-label" for="email">Atstovai</label>
+      <div class="controls">
+      <a wicket:id="representativesLink" href="#" class="btn btn-success">Atstovai</a>
+      </div>
+    </div>  
+    <div class="control-group">
+      <label class="control-label" for="email">Aprašymas</label>
+      <div class="controls">
+      <textarea wicket:id="description" class="input-xlarge"></textarea>
+      </div>
+    </div> 
+    <div class="control-group">
+      <label class="control-label"  for="username">Tinklapis</label>
+      <div class="controls">
+        <input type="text" wicket:id="site" placeholder="" class="input-xlarge" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label"  for="username">Adresas</label>
+      <div class="controls">
+        <input type="text" wicket:id="address" placeholder="" class="input-xlarge" />
+      </div>
+    </div> 
+    <div class="control-group">
+      <label class="control-label"  for="username">Įmonės/asmens kodas</label>
+      <div class="controls">
+        <input type="text" wicket:id="companyCode" placeholder="" class="input-xlarge" />
+      </div>
+    </div> 
+    <div class="control-group">
+      <label class="control-label"  for="username">PVM mokėtojo kodas</label>
+      <div class="controls">
+        <input type="text" wicket:id="vatCode" placeholder="" class="input-xlarge" />
+      </div>
+    </div> 
+    <div class="control-group">
+      <label class="control-label"  for="username">Pašto indeksas</label>
+      <div class="controls">
+        <input type="text" wicket:id="postIndex" placeholder="" class="input-xlarge" />
+      </div>
+    </div> 
+    <div class="control-group">
+      <label class="control-label"  for="username">Registracijos data</label>
+      <div class="controls">
+      <input type="text" wicket:id="registered"	readonly="readonly" class="input-xlarge"/>
+      </div>
+    </div> 
+    <div class="control-group">
+      <div class="controls">
+        <input type="submit" class="btn btn-success" />
+      </div>
+    </div>  
+
+
+
+
+
+
+  </fieldset>
+</form>			
+	<!-- forma finish -->		
+	
+
+</wicket:extend>
+</body>
+</html>

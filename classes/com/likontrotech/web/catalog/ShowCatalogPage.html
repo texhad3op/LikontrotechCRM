@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>CaliberTraffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link wicket:id='stylesheet' />
+	<link wicket:id='stylesheet2' media="screen" />
+<style>
+table.wicket-tree-content {
+	width: 50%;
+}
+</style>	
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+<wicket:extend>
+
+<table width="100%">
+	<tr>
+	<td valign="top" width="50%">
+		<div class="ColumnTop">Katalogas</div> 
+		<div class="Column">
+		<div wicket:id="tree" class="my-tree"></div>
+		</div>
+	</td>
+	<td valign="top" width="50%">
+	<div class="ColumnTop">Elementas: <span wicket:id="selectedElement"></span></div> 
+	<div class="Column">
+	
+	
+
+	<!-- forma start -->	
+<form class="form-horizontal" wicket:id="findForm" method="POST">
+  <fieldset>
+  
+  
+  
+    <div class="control-group">
+        <input type="text" wicket:id="findString" class="input-xlarge" /><input type="submit" class="btn btn-success" value="Ieškoti"/>
+        <a wicket:id="clearFilter" href="#" class="btn btn-success">Valyti</a>
+    </div>  
+    
+    
+    
+      
+
+
+  </fieldset>
+</form>			
+	<!-- forma finish -->	
+
+
+
+
+
+
+
+		<div class="aPanel">
+			<div class="TableTop">
+				Aukštesnis elemetas
+			</div>
+			<a href="#" wicket:id="parentElementLink"><span wicket:id="parentElementLabel"></span></a>	
+		</div>
+		<div class="aPanel">
+			<div class="TableTop">
+			Žemesni elementai
+			</div>
+			<table>
+				<wicket:container wicket:id="catalogElementList">
+					<wicket:container wicket:id="component" />
+					<br />
+				</wicket:container>
+			</table>
+		</div>
+	</div>
+	</td>
+	</tr>
+</table>
+</wicket:extend>
+</body>
+</html>

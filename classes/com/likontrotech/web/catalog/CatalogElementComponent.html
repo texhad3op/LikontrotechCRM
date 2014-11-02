@@ -1,0 +1,42 @@
+<html>
+<wicket:panel>
+	<table class="TableBorder" width="100%">
+		<tr>
+			<td align="left"><a href="#" wicket:id="into"><span
+				wicket:id="catalogElementName">component name</span></a></td>
+			<td align="right"><a href="#" wicket:id="bottomLink">bottom</a>&nbsp;&nbsp;<a
+				href="#" wicket:id="topLink">top</a></td>
+		</tr>
+	</table>
+	<wicket:enclosure child="catalogElementNameLeaf">
+		<table class="TableBorder" width="100%">
+			<tr>
+				<td class="TableTop" align="left"><span
+					wicket:id="catalogElementNameLeaf">component name</span></td>
+				<td class="TableTop" align="right"><a href="#"
+					wicket:id="addToSuggestionLink">Pridėti prie pasiūlymo</a></td>
+			</tr>
+			<tr>
+				<td class="TableTop">Parametras</td>
+				<td class="TableTop">Reikšmė</td>
+			</tr>
+			<tr>
+				<td class="TableRow">Kaina</td>
+				<td class="TableRow"><span wicket:id="price">uu</span></td>
+			</tr>
+			<tr>
+				<td class="TableRow">Kiekis sandelyje</td>
+				<td class="TableRow"><span wicket:id="quantityOnWarehouse">uu</span></td>
+			</tr>			
+			<tr wicket:id="attributeValueList">
+				<td class="TableRow"><span wicket:id="attributeName">uu</span></td>
+				<td class="TableRow"><span wicket:id="attributeValue">uu</span></td>
+			</tr>
+			<tr>
+				<td class="TableRow" colspan="2"><img wicket:id="picture" /></td>
+			</tr>
+		</table>
+
+	</wicket:enclosure>
+</wicket:panel>
+</html>

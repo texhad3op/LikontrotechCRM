@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>CaliberTraffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link wicket:id='stylesheet' />
+	<link wicket:id='stylesheet2' media="screen" />
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+	<wicket:extend>
+		<div class="ColumnTop">
+			Įmonės <span wicket:id="companylabel">uu</span> įvykio keitimas
+		</div>
+
+
+<div class="btn-toolbar">
+    <button class="btn btn-primary" wicket:id="firms">Grižti prie įmonių sąrašo</button>
+    <button class="btn btn-primary" wicket:id="companylink">Grįžti prie įmonės įvykių</button>
+</div>	
+
+				<table border="0" width="100%">
+					<tr>
+						<td valign="top">
+							<div wicket:id="container" style="background-color: #b0c4de;">
+								<blockquote wicket:id="labelOk">[label1]
+								</blockquote>
+								<blockquote wicket:id="labelFail">[label2]
+								</blockquote>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td valign="top">
+						
+						
+	<!-- forma start -->	
+	<div wicket:id="feedback"></div>	
+<form class="form-horizontal" wicket:id="form" method="POST">
+  <fieldset>
+  
+  
+  
+    <div class="control-group">
+      <label class="control-label"  for="username">Aprašymas</label>
+      <div class="controls">
+        <textarea wicket:id="description" class="input-xlarge"></textarea>
+      </div>
+    </div>  
+    <div class="control-group">
+      <label class="control-label"  for="username">Data</label>
+      <div class="controls">
+        <input type="text" wicket:id="eventTime" placeholder="" class="input-xlarge" />
+      </div>
+    </div>
+    <div class="control-group">
+      <label class="control-label" for="email">Būsėna</label>
+      <div class="controls">
+        <select wicket:id="type" class="input-xlarge"></select>
+      </div>
+    </div>     
+    <div class="control-group">
+      <label class="control-label" for="email">Įvykis</label>
+      <div class="controls">
+        <input type="submit" wicket:id="saveEvent" class="btn btn-success" />
+      </div>
+    </div>  
+
+    <div class="control-group">
+      <label class="control-label" for="email">Byla</label>
+      <div class="controls">
+        <input type="submit" wicket:id="saveAndSendAttachedFile" class="btn btn-success" />
+		<input wicket:id="fileInput" id="upload" type="file" />
+		<a href="#" target="_new" wicket:id="sentAttachedFile">Preview</a> 		
+      </div>
+    </div>  
+
+    <div class="control-group">
+      <label class="control-label" for="email">Komercinis pasiūlymas</label>
+      <div class="controls">
+        <input type="submit" wicket:id="saveCommercialOffer" class="btn btn-success" />
+        <input type="checkbox" wicket:id="sendMailCommercialOffer" class="input-xlarge" />
+		<div wicket:id="modalCommercialOffer"></div>
+		<a wicket:id="showModalCommercialOffer">Redaguoti</a>
+		<a wicket:id="toCartCommercialOffer">to cart</a>
+		<a href="#" target="_new" wicket:id="previewCommercialOffer">Preview</a> 
+      </div>
+    </div>  
+    
+    <div class="control-group">
+      <label class="control-label" for="email">Sąska. išankst. apmok.</label>
+      <div class="controls">
+        <input type="submit" wicket:id="saveProformaInvoice" class="btn btn-success" />
+        <input type="checkbox" wicket:id="sendMailProformaInvoice" class="input-xlarge" />        
+		<div wicket:id="modalProformaInvoice"></div>
+		<a wicket:id="showModalProformaInvoice">Redaguoti</a>
+		<a wicket:id="toCartProformaInvoice">to cart</a>
+		<a href="#" target="_new" wicket:id="previewProformaInvoice">Preview</a> 
+      </div>
+    </div>      
+    
+    <div class="control-group">
+      <label class="control-label" for="email">PVM Sąskait. faktūra</label>
+      <div class="controls">
+        <input type="submit" wicket:id="saveInvoice" class="btn btn-success" />
+        <input type="checkbox" wicket:id="sendMailInvoice" class="input-xlarge" />          
+		<div wicket:id="modalInvoice"></div>
+		<a wicket:id="showModalInvoice">Redaguoti</a>
+		<a wicket:id="toCartInvoice">to cart</a>
+		<a href="#" target="_new" wicket:id="previewInvoice">Preview</a> 
+      </div>
+    </div>  
+
+  </fieldset>
+</form>			
+	<!-- forma finish -->						
+						
+
+						</td>
+					</tr>
+				</table>
+	</wicket:extend>
+</body>
+</html>

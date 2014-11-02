@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>TreePage</title>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<style>
+table.wicket-tree-content {
+	width: 100%;
+}
+</style>
+</head>
+<body>
+<wicket:extend>
+	<table width="100%">
+		<tr>
+		<td valign="top">
+			<div class="ColumnTop">Katalogas</div> 
+			<div class="Column">
+				<div wicket:id="tree" class="my-tree"></div>
+			</div>
+		</td>
+		<td valign="top">
+		<div class="ColumnTop">Atributai: <span wicket:id="selectedElement"></span></div> 
+		<div class="Column">
+			<div class="aPanelTop">Atributų įvedimas</div>
+			<div class="aPanelBtm">
+			<form wicket:id="form" name="editForm">
+			<table>
+				<tr>
+					<td>Atributo pavadinimas</td>
+					<td><input type="text" wicket:id="name" size="40" /></td>
+				</tr>
+				<tr>
+					<td>&nbsp;</td>
+					<td><input type="submit" value="save" /></td>
+				</tr>
+			</table>
+			</form>
+			</div>
+			<div class="aPanelTop">Atributai</div>
+			<div class="aPanelBtm">
+				<table>
+				<th>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>&nbsp;</td>
+					<td>pasiulymas</td>					
+					<td>faktūra</td>					
+					<td>&nbsp;</td>				
+					<td>&nbsp;</td>		
+					<td>&nbsp;</td>
+				</th>
+				<tr wicket:id="attributesList">
+					<td><span wicket:id="number">uu</span></td>
+					<td><span wicket:id="name">uu</span></td>
+					<td><a href="#" wicket:id="deleteLink">delete</a></td>
+					<td><a href="#" wicket:id="editLink">edit</a></td>
+					<td align="center"><a href="#" wicket:id="showForCommercialOfferLink"><span wicket:id="showForCommercialOfferLabel"></span></a></td>	
+					<td align="center"><a href="#" wicket:id="showForInvoiceLink"><span wicket:id="showForInvoiceLabel"></span></a></td>										
+					<td>&nbsp;&nbsp;&nbsp;</td>					
+					<td><a href="#" wicket:id="bottomLink">bottom</a></td>
+					<td><a href="#" wicket:id="topLink">top</a></td>
+				</tr>
+				</table>
+			</div>
+		</div>
+		</td>
+	</tr>
+	</table>
+</wicket:extend>
+</body>
+</html>

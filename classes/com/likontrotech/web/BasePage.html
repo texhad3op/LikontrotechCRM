@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>LikontrotechCRM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link wicket:id='stylesheet2' media="screen" />
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+<div class="navbar navbar-inverse nav">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+            <div class="brand" >Vartotojas:<span wicket:id="logged"></span></div>
+			
+          	<div class="nav-collapse collapse">
+              <ul class="nav">
+                  <li class="divider-vertical"></li>
+                  <li><a href="#"><i class="icon-home icon-white"></i> Home</a></li>
+              </ul>
+              <div class="pull-right">
+                <ul class="nav pull-right"><a href="#" class="nav-header" wicket:id="logout">Atsijungti</a></ul>
+              </div>
+            </div>
+        </div>
+    </div>
+</div> 
+    
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
+        <!-- menu start -->
+
+    
+<ul class="nav nav-list">
+  <li class="nav-header">Meniu</li>
+ 
+  
+		<li><wicket:container wicket:id="crm" /></li>
+		<li><wicket:container wicket:id="catalog" /></li>
+		<li><wicket:container wicket:id="attributes" /></li>
+		<li><wicket:container wicket:id="filling" /></li>
+		<li><wicket:container wicket:id="catalogPageLink" /></li>
+		<li><wicket:container wicket:id="report" /></li>
+		<li><wicket:container wicket:id="warehouse" /></li>
+		<li><wicket:container wicket:id="serialNumberControl" /></li>  
+    <!-- menu finish -->
+</ul>    
+    
+
+    </div>
+    <div class="span10">
+        <!-- body start -->
+
+<style type="text/css">
+table.example5 {background-color:LightGray;border:1px dotted black;}
+table.example5 th, table.example5 td {text-align:center;border:0;padding:1px;background-color:transparent;}
+table.example5 th {background-color:LightGray;color:white;}
+table.example5 th:first-child {width:20%;}
+</style>        
+    <wicket:child />
+        <!-- body finish -->
+    </div>
+  </div>
+</div>
+
+</body>
+</html>    

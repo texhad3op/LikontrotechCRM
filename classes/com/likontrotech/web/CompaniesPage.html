@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+<head>
+<title>CaliberTraffic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<link wicket:id='stylesheet' />
+	<link wicket:id='stylesheet2' media="screen" />
+</head>
+<body>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+<wicket:extend>
+
+
+
+        <div class="span9">  
+          <div class="leaderboard">  
+	<!-- forma start -->		
+<form class="form-horizontal" wicket:id="findCompanyForm" method="POST">
+  <fieldset>
+    <div class="control-group">
+      <!-- Username -->
+      <label class="control-label"  for="username">Įmonės pavadinimas</label>
+      <div class="controls">
+        <input type="text" wicket:id="companyName" placeholder="" class="input-xlarge" />
+      </div>
+    </div>
+    <div class="control-group">
+      <!-- E-mail -->
+      <label class="control-label" for="email">Įmonės tipas</label>
+      <div class="controls">
+        <select wicket:id="companyType" class="input-xlarge"></select>
+      </div>
+    </div>     
+ 
+    <div class="control-group">
+      <!-- Button -->
+      <div class="controls">
+        <button class="btn btn-success">Rasti</button>
+      </div>
+    </div>
+  </fieldset>
+</form>			
+	<!-- forma finish -->
+          </div>  
+          <div>  
+
+<div class="btn-toolbar">
+    <button class="btn btn-primary" wicket:id="newFirm">Sukūrti	įmonė</button>
+</div>	
+    <span wicket:id="navigator">[dataview navigator]</span>
+<table>
+<tr>
+<td valign="top">
+	<!-- table1 start -->				
+			<span wicket:id="companiesFound">uu</span>
+<div class="well">
+    <table class="table">
+      <thead>
+        <tr>
+					<th>Įmonė</th>
+					<th>Paskutinis įvykis</th>
+					<th nowrap>Įvykio data</th>
+        </tr>
+      </thead>
+      <tbody>
+				<tr wicket:id="companiesList">
+					<td><a href="#" wicket:id="namelink"><span
+						wicket:id="namelabel">uu</span></a></td>
+					<td><a href="#" wicket:id="lasteventlink"><span
+						wicket:id="lasteventlabel">uu</span></a></td>
+					<td><span wicket:id="lastEventDate">uu</span></td>
+				</tr>
+      </tbody>
+    </table>
+</div>			
+	<!-- table1 finish -->		
+</td><td valign="top">
+
+	<!-- table2 start -->					
+<div class="well">
+    <table class="table">
+      <thead>
+        <tr>
+					<th>Data</th>
+					<th>Įmonė</th>
+					<th>Pastaba</th>
+        </tr>
+      </thead>
+      <tbody>
+				<tr wicket:id="scheduledEventsList">
+					<td nowrap><span wicket:id="data">uu</span></td>
+					<td><a href="#" wicket:id="companylink"><span wicket:id="companylabel">uu</span></a></td>
+					<td class="TableRow"><a href="#" wicket:id="namelink"><span	wicket:id="namelabel">uu</span></a></td>
+				</tr>
+      </tbody>
+    </table>
+</div>				
+
+	<!-- table2 finish -->	
+</td>	
+</tr>
+</table>
+
+
+          </div><!--/row--> 
+	
+	
+	</div>
+	
+	
+	
+	
+	
+	
+
+	
+
+</wicket:extend>
+</body>
+</html>
